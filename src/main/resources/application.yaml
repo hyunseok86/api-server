@@ -1,0 +1,39 @@
+jwt:
+  header: Authorization
+  secret: DC47021F97EC0BAD9D63EAD76D788F8057FA54908120AC260DAEC0F623360E122D0D50BE46F9B5F8FE7DE5E24A3AEFB0
+  refresh-secret: 726D6D42ADE0DBFEFD1080FB2BFD89A1BD5062C425B93EC9DE581F1E3D9D326C2944FBC1A22CA0F614AD189610F7EE7C
+  token-validity-in-seconds: '1800'
+spring:
+  jpa:
+    generate-ddl: 'true'
+    database: mysql
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: 'false'
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show-sql: 'true'
+        format_sql: 'true'
+  datasource:
+    password: wjdcldls!!22
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: apiServiceUser
+    url: jdbc:mysql://140.238.2.227:3306/apiServer?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/**/**.xml
+server:
+  port: '8091'
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: info
+        type:
+          descriptor:
+            sql: trace
+    root: info
